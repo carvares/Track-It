@@ -14,7 +14,7 @@ export default function App() {
     <BrowserRouter>
     <GlobalStyle/>
     <Routes>
-      <Route path="sign-in" element={<Login/>}/>
+      <Route path="*" element={<Login/>}/>
       <Route path="sign-up" element={<SignUp/>}/>
       <Route path="home" element={<><Header/>  <Navbar/> <Outlet/></>}>
         <Route path="habits" element={<Habits />}/>

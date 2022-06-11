@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+type Iprops = {
+    userPassword?: string;
+    confirmPassword?: string;
+    value?: string;
+}
+export const Container = styled.div<Iprops>`
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
 
     display:flex;
@@ -9,7 +14,7 @@ export const Container = styled.div`
     width: 100vw;
     height:100vh;
     background: linear-gradient(135deg, #7cadfc ,#568ce3);
-    div{
+    &> div{
         display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,6 +45,9 @@ export const Container = styled.div`
             :hover{
                 background-color: #cccccc;
             }
+        }
+        .confirmPassword {
+            border: ${props => props.userPassword === props.confirmPassword? 'none': 'solid 2px red'}
         }
         button{
             height: 35px;
