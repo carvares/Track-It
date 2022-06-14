@@ -1,6 +1,6 @@
 import React from 'react';
 import Day from '../../day';
-import { Iday } from './../../../interfaces';
+import { Iday } from '../../../interfaces';
 import { WeekdaysStyle } from './style';
 
 

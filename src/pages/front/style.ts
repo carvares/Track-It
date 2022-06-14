@@ -46,9 +46,6 @@ export const Container = styled.div<Iprops>`
                 background-color: #cccccc;
             }
         }
-        .confirmPassword {
-            border: ${props => props.userPassword === props.confirmPassword? 'none': 'solid 2px red'}
-        }
         button{
             height: 35px;
             width: 150px;
@@ -57,6 +54,7 @@ export const Container = styled.div<Iprops>`
             background-color: #ffffff;
             font-family: 'Ubuntu', sans-serif;
             font-size: 1rem;
+            font-weight: bold;
             color: #568ce3;
             margin: 7px 0 ;
             :hover{
@@ -65,6 +63,18 @@ export const Container = styled.div<Iprops>`
                 cursor: pointer;
             }
         }
+        a{
+            margin-top: 1em;
+            color: #ffffff;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            text-decoration: underline 0.3em rgba(255,255,255, 0);
+            :hover{
+                transition: linear 0.3s;
+                text-decoration-color: rgba(255,255,255,1);
+            }
         }
+        }
+        
     }
 `

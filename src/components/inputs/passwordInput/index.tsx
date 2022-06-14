@@ -12,7 +12,7 @@ export default function PasswordInput({userPassword, setUserPassword, placeholde
     const [showPassword, setShowPassword] = useState(false);
     return(
        <PasswordInputStyle>
-         <input type={showPassword? "text": "password"} placeholder={placeholder} value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}}/>
+         <input type={showPassword? "text": "password"} required placeholder={placeholder} value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}}/>
          <span onClick={()=>{setShowPassword(!showPassword)}}>{showPassword? <AiOutlineEye/>: <AiOutlineEyeInvisible/>}</span>
        </PasswordInputStyle>
     )
