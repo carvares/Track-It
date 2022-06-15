@@ -37,8 +37,13 @@ export default function SignUp(){
         toast.promise(
             server.post('sign-up', body),
             {
-                pending:'creating yout account',
-                success: 'account created!',
+                pending:'creating your account',
+                success: {
+                    render(){
+                        navigate('../home')
+                        return 'accont created!'
+                    }
+                },
                 error:  {
                     render({data}){
                         console.log(data)
@@ -59,8 +64,8 @@ export default function SignUp(){
                     <input type="email" required placeholder='E-mail' value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                     <input type="text" required minLength={3} maxLength={25} placeholder='Name' value={userName} onChange={(e)=>{setUserName(e.target.value)}}/>
                     <input type="url" required placeholder='Image url' value={imgUrl} onChange={(e)=>{setImgUrl(e.target.value)}}/>
-                    <PasswordInput userPassword={password} setUserPassword={setPassword} placeholder={'enter the password'}/>
-                    <PasswordInput  userPassword={confirmPassword} setUserPassword={setConfirmPassword} placeholder={'confirm the password'}/>
+                    <PasswordInput userPassword={password} setUserPassword={setPassword} placeholder={'Password'}/>
+                    <PasswordInput  userPassword={confirmPassword} setUserPassword={setConfirmPassword} placeholder={'Confirm password'}/>
                     <button type='submit'>Sign Up</button>
                     <Link to='/sign-in'>Already have an account? just sign-in!</Link>
                     <ToastContainer limit={1} draggablePercent={80}/>

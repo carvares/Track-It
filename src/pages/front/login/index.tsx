@@ -5,9 +5,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import PasswordInput from '../../../components/inputs/passwordInput';
 import { Container } from '../style';
 import { server } from './../../../utils/axios';
+import { useContext } from 'react';
+import { UserContext } from './../../../contexts/userContext';
+import { userInfo } from '../../../types';
+
 export default function Login(){
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const {setUserInfo}: {setUserInfo: React.Dispatch<React.SetStateAction<userInfo>>} = useContext(UserContext)
 
     const navigate = useNavigate();
 
@@ -27,14 +32,16 @@ export default function Login(){
         }
        try{
         const result: AxiosResponse = await server.post('/sign-in', body)
+        console.log(result.data)
           
-        console.log(result)
+        setUserInfo(result.data)
+        navigate('home')
        }
        catch(err: any | AxiosError){
-        if(err.response.status === 401) notify()
+        console.log(err)
+        if(err.response?.status === 401) notify()
         toast.clearWaitingQueue()
        }
-       navigate('home')
     }
     return(
         <Container>
