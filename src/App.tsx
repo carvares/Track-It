@@ -6,11 +6,13 @@ import SignUp from './pages/front/signup';
 import Habits from './pages/home/habits';
 import Header from './components/header/index';
 import Navbar from './components/navbar/index';
+import UserContextProvider from './contexts/userContext';
 
 export default function App() {
 
 
   return (
+    <UserContextProvider>
     <BrowserRouter>
     <GlobalStyle/>
     <Routes>
@@ -23,6 +25,7 @@ export default function App() {
       </Route>
     </Routes>
     </BrowserRouter>
+    </UserContextProvider>
   )
 } 
 
